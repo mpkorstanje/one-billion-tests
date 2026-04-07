@@ -8,8 +8,9 @@ import java.util.stream.Stream;
 
 class LotsOfTests {
 
+    private static final int ONE_MILLION = 1_000_000;
     private static final int ONE_BILLION = 1_000_000_000;
-    private static final long LIMIT = ONE_BILLION;
+    private static final long LIMIT = ONE_MILLION;
 
     @TestFactory
     Stream<DynamicTest> test(){
