@@ -20,7 +20,7 @@ class LotsOfTests {
         startTime = System.currentTimeMillis();
         Stream<Long> longStream = LongStream.range(0, LIMIT).boxed();
         return DynamicTest.stream(longStream, String::valueOf, aLong -> {
-            if(aLong % 1_000_000 == 0) {
+            if(aLong % ONE_MILLION == 0) {
                 double testPerSecond = aLong.doubleValue() / (System.currentTimeMillis() - startTime) * 1000;
                 long testRemaining = LIMIT - aLong;
                 double minutesRemaining = testRemaining / testPerSecond / 60;
