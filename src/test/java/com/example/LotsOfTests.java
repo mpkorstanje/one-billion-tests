@@ -3,6 +3,8 @@ package com.example;
 import com.sun.management.HotSpotDiagnosticMXBean;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.TestFactory;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 
 import javax.management.MBeanServer;
 import java.lang.management.ManagementFactory;
@@ -13,9 +15,10 @@ class LotsOfTests {
 
     private static final int ONE_MILLION =     1_000_000;
     private static final int ONE_BILLION = 1_000_000_000;
-    private static final long LIMIT = ONE_BILLION;
+    private static final long LIMIT = ONE_MILLION;
     private static long startTime;
     @TestFactory
+    @Execution(ExecutionMode.CONCURRENT)
     Stream<DynamicTest> test(){
         startTime = System.currentTimeMillis();
         Stream<Long> longStream = LongStream.range(0, LIMIT).boxed();
