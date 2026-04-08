@@ -6,6 +6,8 @@ import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
 import org.junit.platform.launcher.core.LauncherFactory;
 import org.junit.platform.launcher.listeners.SummaryGeneratingListener;
 
+import java.io.PrintWriter;
+
 public class TestRunner {
 
     public static void main(String[] args) {
@@ -17,7 +19,7 @@ public class TestRunner {
 
         LauncherFactory.create().execute(request, listener);
 
-        System.out.println(listener.getSummary().getTestsFailedCount());
+        listener.getSummary().printTo(new PrintWriter(System.out));
 
 
     }
