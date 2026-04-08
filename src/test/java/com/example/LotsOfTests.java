@@ -23,15 +23,15 @@ class LotsOfTests {
                 System.out.println(aLong);
             }
 
-            // Show that we're leaving garbage behind.
-            if(aLong == ONE_MILLION) {
-                MBeanServer server = ManagementFactory.getPlatformMBeanServer();
-                HotSpotDiagnosticMXBean mxBean = ManagementFactory.newPlatformMXBeanProxy(
-                        server, "com.sun.management:type=HotSpotDiagnostic", HotSpotDiagnosticMXBean.class);
-                mxBean.dumpHeap(System.currentTimeMillis() + ".hprof", true);
-
-                System.exit(1);
-            }
+//            // Show that we're leaving garbage behind.
+//            if(aLong == ONE_MILLION) {
+//                MBeanServer server = ManagementFactory.getPlatformMBeanServer();
+//                HotSpotDiagnosticMXBean mxBean = ManagementFactory.newPlatformMXBeanProxy(
+//                        server, "com.sun.management:type=HotSpotDiagnostic", HotSpotDiagnosticMXBean.class);
+//                mxBean.dumpHeap(System.currentTimeMillis() + ".hprof", true);
+//
+//                System.exit(1);
+//            }
 
         } );
     }
